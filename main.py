@@ -9,7 +9,12 @@ form = """
 
 <html>
     <head>
+        <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}" /> -->
         <style>
+            body {{
+                background-color: #FFFDF8;
+            }}
+
             form {{
                 background-color: #eee;
                 padding: 20px;
@@ -18,6 +23,7 @@ form = """
                 font: 16px sans-serif;
                 border-radius: 10px;
             }}
+
             textarea {{
                 margin: 10px 0;
                 width: 540px;
