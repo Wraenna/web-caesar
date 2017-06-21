@@ -1,52 +1,10 @@
-from flask import Flask, request, redirect
+from flask import Flask, request, redirect, render_template
 from caesar import rotate_string
 import cgi
+import os
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-
-form = """
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}" /> -->
-        <style>
-            body {{
-                background-color: #FFFDF8;
-            }}
-
-            form {{
-                background-color: #eee;
-                padding: 20px;
-                margin: 0 auto;
-                width: 540px;
-                font: 16px sans-serif;
-                border-radius: 10px;
-            }}
-
-            textarea {{
-                margin: 10px 0;
-                width: 540px;
-                height: 120px;
-            }}
-
-            .error {{
-                color: red;
-            }}
-        </style>
-    </head>
-    <body>
-      <form action="" method="post">
-        <label for="rot">Rotate by: <input type="text" name="rot" value="0"/></label>
-        <p class="error">{rot_error}</p>
-        <textarea rows="4" cols="50" name="text">{text}</textarea>
-        <p class="error">{text_error}</p>
-        <input type="submit" />
-      </form>
-    </body>
-</html>
-"""
 
 def is_integer(num):
     try:
@@ -57,7 +15,7 @@ def is_integer(num):
 
 @app.route("/")
 def index():
-    return form.format(rot_error="", text="", text_error="")
+    return render_template('caesar.html', title="Web Caesar", rot_error="", text="", text_error="")
 
 @app.route("/", methods=['POST'])
 def encrypt():
@@ -85,6 +43,6 @@ def encrypt():
     else:
         encrypted = rotate_string(text, rot)
 
-    return form.format(rot="0", text=encrypted, rot_error="", text_error="")
+    return render_template('caesar.html', title="Web Caesar", rot="0", text=encrypted, rot_error="", text_error="")
 
 app.run()

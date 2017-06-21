@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="" method="post">
+  <label for="rot">Rotate by: <input type="text" name="rot" value="0"/></label>
+  <p class="error">{{rot_error}}</p>
+  <textarea rows="4" cols="50" name="text">{{text}}</textarea>
+  <p class="error">{{text_error}}</p>
+  <input type="submit" />
+</form>
+
+{% endblock %}
