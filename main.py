@@ -30,7 +30,7 @@ def encrypt():
         rot = "0"
         text = text
         text_error = ""
-        return form.format(rot=rot, text=text, rot_error=rot_error, text_error=text_error)
+        return render_template('caesar.html', title="Web Caesar", rot=rot, text=text, rot_error=rot_error, text_error=text_error)
     else:
         rot = int(rot)
 
@@ -39,7 +39,7 @@ def encrypt():
         text = ""
         rot = rot
         rot_error = rot_error
-        return form.format(rot=rot, text=text, rot_error=rot_error, text_error=text_error)
+        return render_template('caesar.html', title="Web Caesar", rot=rot, text=text, rot_error=rot_error, text_error=text_error)
     else:
         encrypted = rotate_string(text, rot)
 

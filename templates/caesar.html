@@ -1,13 +1,41 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<form action="" method="post">
-  <label for="rot">Rotate by: <input type="text" name="rot" value="0"/></label>
-  <p class="error">{{rot_error}}</p>
-  <textarea rows="4" cols="50" name="text">{{text}}</textarea>
-  <p class="error">{{text_error}}</p>
-  <input type="submit" />
-</form>
+<header>
+  <h2>Web Caesar</h2>
+  <p>A web-friendly version of the Caesar cipher program</p>
+</header>
+<main>
+  <section id="form">
+    <form action="" method="post">
+      <label for="rot">Rotate by: <input type="text" name="rot" value="0"/></label>
+      <p class="error">{{rot_error}}</p>
+      <textarea rows="4" cols="50" name="text">{{text}}</textarea>
+      <p class="error">{{text_error}}</p>
+      <input type="submit" value="Encrypt!"/>
+    </form>
+  </section>
+  <section id="about">
+    <h3>What is the Caesar cipher?</h3>
+    <hr />
+    <p>In cryptography, a Caesar cipher, also known as Caesar's cipher,
+      the shift cipher, Caesar's code or Caesar shift, is one of the simplest
+      and most widely known encryption techniques. It is a type of substitution
+      cipher in which each letter in the plaintext is replaced by a letter some
+      fixed number of positions down the alphabet. For example, with a left
+      shift of 3, D would be replaced by A, E would become B, and so on.
+      The method is named after Julius Caesar, who used it in his private
+      correspondence.</p>
+    <p>The encryption step performed by a Caesar cipher is often incorporated
+      as part of more complex schemes, such as the Vigenère cipher, and still
+      has modern application in the ROT13 system. As with all single-alphabet
+      substitution ciphers, the Caesar cipher is easily broken and in modern
+      practice offers essentially no communication security.<sup>[1]</sup></p>
+  </section>
+</main>
+<footer>
+  <p><sup>[1]</sup> Information provided by Wikipedia.</p>
+  <p>&copy; 2017 Wren Bareilles. All rights reserved.</p>
+</footer>
 
 {% endblock %}
